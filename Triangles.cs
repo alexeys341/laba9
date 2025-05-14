@@ -178,10 +178,10 @@ namespace lab9
                 correctA = Double.Parse(a);
                 try
                 {
-                    correctB = Int32.Parse(b);
+                    correctB = Double.Parse(b);
                     try
                     {
-                        correctC = Int32.Parse(c);
+                        correctC = Double.Parse(c);
                     }
                     catch (FormatException)
                     {
