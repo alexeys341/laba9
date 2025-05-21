@@ -1,7 +1,7 @@
 ﻿<Window x:Class="lab9.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Triangle Area Calculator" Height="600" Width="700
+        Title="Triangle Area Calculator" Height="630" Width="720" ResizeMode="NoResize
         ">
     <Grid RenderTransformOrigin="0.5,0.5">
         <Grid.ColumnDefinitions>
@@ -13,18 +13,18 @@
             <TransformGroup>
                 <ScaleTransform/>
                 <SkewTransform/>
-                <RotateTransform Angle="-0.172"/>
+                <RotateTransform Angle="0"/>
                 <TranslateTransform/>
             </TransformGroup>
         </Grid.RenderTransform>
         <Label Content="Side A:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,57,0,0" Grid.ColumnSpan="3" Height="48" Width="92"/>
-        <TextBox x:Name="SideA1TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,55,0,0" Grid.ColumnSpan="3" Width="129" Height="34"/>
+        <TextBox x:Name="SideA1TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,55,0,0" Grid.ColumnSpan="3" Width="129" Height="34" MaxLength="300"/>
 
         <Label Content="Side B:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,131,0,0" Grid.ColumnSpan="3" Height="48" Width="90"/>
-        <TextBox x:Name="SideB1TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,128,0,0" Grid.ColumnSpan="3" Width="129" Height="33"/>
+        <TextBox x:Name="SideB1TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,128,0,0" Grid.ColumnSpan="3" Width="129" Height="33" MaxLength="300"/>
 
         <Label Content="Side C:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="41,204,0,0" Grid.ColumnSpan="3" Height="48" Width="92"/>
-        <TextBox x:Name="SideC1TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,202,0,0" Grid.ColumnSpan="3" Width="129" Height="34"/>
+        <TextBox x:Name="SideC1TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="123,202,0,0" Grid.ColumnSpan="3" Width="129" Height="34" MaxLength="300"/>
 
         <TextBlock x:Name="ResultTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-160,307,0,0" TextWrapping="Wrap" Grid.ColumnSpan="3" Height="30" Width="340"/>
 
@@ -33,24 +33,24 @@
 
         <TextBlock x:Name="ComparisonResultTextBlock" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-160,528,0,0" TextWrapping="Wrap" Grid.ColumnSpan="3" Height="29" Width="340"/>
         <Label Content="Side A:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="448,57,0,0" Grid.Column="2" Height="48" Width="92"/>
-        <TextBox x:Name="SideA2TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,55,0,0" Width="130" Grid.Column="2" Height="34"/>
+        <TextBox x:Name="SideA2TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,55,0,0" Width="130" Grid.Column="2" Height="34" MaxLength="300"/>
         <Label Content="Side B:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="448,131,0,0" Grid.Column="2" Height="48" Width="90"/>
-        <TextBox x:Name="SideB2TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,129,0,0" Width="130" Grid.Column="2" Height="33"/>
+        <TextBox x:Name="SideB2TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,128,0,0" Width="130" Grid.Column="2" Height="33" MaxLength="300"/>
         <Label Content="Side C:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="448,204,0,0" Grid.Column="2" Height="48" Width="92"/>
-        <TextBox x:Name="SideC2TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,202,0,0" Width="130" Grid.Column="2" Height="34"/>
+        <TextBox x:Name="SideC2TextBox" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="530,202,0,0" Width="130" Grid.Column="2" Height="34" MaxLength="300"/>
 
         <Label Content="Triangle 1" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="92,6,0,0" Grid.ColumnSpan="3" Height="48" Width="121"/>
         <Label Content="Triangle 2" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="518,10,0,0" Grid.Column="2" Height="47" Width="122"/>
 
-        <Button Content="Calculate Perimetr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="49,324,0,0" Click="CalculatePerimetr1" Grid.ColumnSpan="3" Height="36" Width="199"/>
-        <Button Content="Calculate Perimetr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="459,324,0,0" Click="CalculatePerimetr2" Grid.Column="2" Height="36" Width="200"/>
+        <Button Content="Calculate Perimetr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,320,0,0" Click="CalculatePerimetr1" Grid.ColumnSpan="3" Height="40" Width="200"/>
+        <Button Content="Calculate Perimetr" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="457,320,0,0" Click="CalculatePerimetr2" Grid.Column="2" Height="40" Width="200"/>
 
-        <Button Content="Check correction" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="41" Margin="49,261,0,0" VerticalAlignment="Top" Width="199" Click="CheckCorrection1"/>
-        <Button Content="Check correction" HorizontalAlignment="Left" Height="41" Margin="457,260,0,0" VerticalAlignment="Top" Width="200" Click="CheckCorrection2" Grid.Column="2"/>
+        <Button Content="Check correction" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="40" Margin="50,260,0,0" VerticalAlignment="Top" Width="200" Click="CheckCorrection1"/>
+        <Button Content="Check correction" HorizontalAlignment="Left" Height="40" Margin="457,260,0,0" VerticalAlignment="Top" Width="200" Click="CheckCorrection2" Grid.Column="2"/>
 
-        <Button Content="Calculate Square" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="60,390,0,0" Click="CalculateSquare1" Grid.ColumnSpan="3" Height="37" Width="183"/>
-        <Button Content="Calculate Square" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="471,390,0,0" Click="CalculateSquare2" Grid.Column="2" Height="37" Width="184"/>
+        <Button Content="Calculate Square" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,380,0,0" Click="CalculateSquare1" Grid.ColumnSpan="3" Height="40" Width="200"/>
+        <Button Content="Calculate Square" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="457,380,0,0" Click="CalculateSquare2" Grid.Column="2" Height="40" Width="200"/>
 
-        <TextBox x:Name="ResultTextBox" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="64" Margin="70,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="578"/>
+        <TextBox x:Name="ResultTextBox" Grid.ColumnSpan="3" HorizontalAlignment="Left" Height="64" Margin="70,464,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="578" MaxLength="1" IsReadOnly="True"/>
     </Grid>
 </Window>
