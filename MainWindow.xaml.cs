@@ -31,7 +31,12 @@ public partial class MainWindow : Window
         string sideCOfFirstTriangle = SideC1TextBox.Text;
         Triangles triangle1 = new Triangles();
         bool correct = triangle1.Check(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
-        if (correct == false)
+        bool range = triangle1.Check2(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
+        if (range == false)
+        {
+            ResultTextBox.SelectedText = "Value is out of range";
+        }
+        else if (correct == false)
         {
             ResultTextBox.Clear();
             ResultTextBox.SelectedText = "Incorrect value or triangle doesn't exist";
@@ -39,7 +44,7 @@ public partial class MainWindow : Window
         else
         {
             ResultTextBox.Clear();
-            ResultTextBox.SelectedText = "triangle exist";
+            ResultTextBox.SelectedText = "Triangle exist";
         }
     }
 
@@ -50,7 +55,12 @@ public partial class MainWindow : Window
         string sideCOfSecondTriangle = SideC2TextBox.Text;
         Triangles triangle2 = new Triangles();
         bool correct = triangle2.Check(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
-        if (correct == false)
+        bool range = triangle2.Check2(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
+        if (range == false)
+        {
+            ResultTextBox.SelectedText = "Value is out of range";
+        }
+        else if (correct == false)
         {
             ResultTextBox.Clear();
             ResultTextBox.SelectedText = "Incorrect value or triangle doesn't exist";
@@ -69,7 +79,12 @@ public partial class MainWindow : Window
         string sideCOfFirstTriangle = SideC1TextBox.Text;
         Triangles triangle1 = new Triangles();
         bool correct = triangle1.Check(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
-        if (correct == false)
+        bool range = triangle1.Check2(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
+        if (range == false)
+        {
+            ResultTextBox.SelectedText = "Value is out of range";
+        }
+        else if (correct == false)
         {
             ResultTextBox.Clear();
             ResultTextBox.SelectedText = "Incorrect value or triangle doesn't exist";
@@ -77,7 +92,7 @@ public partial class MainWindow : Window
         else
         {
             ResultTextBox.Clear();
-            ResultTextBox.SelectedText = "Perimetr of first triangle is: " + triangle1.ToString(triangle1);
+            ResultTextBox.SelectedText = "The perimetr of first triangle is: " + triangle1.ToString(triangle1);
         }
     }
 
@@ -89,13 +104,18 @@ public partial class MainWindow : Window
         ResultTextBox.Clear();
         Triangles triangle2 = new Triangles();
         bool correct = triangle2.Check(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
-        if (correct == false)
+        bool range = triangle2.Check2(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
+        if (range == false)
+        {
+            ResultTextBox.SelectedText = "Value is out of range";
+        }
+        else if (correct == false)
         {
             ResultTextBox.SelectedText = "Incorrect value or triangle doesn't exist";
         }
         else
         {
-            ResultTextBox.SelectedText = "Perimetr of first triangle is: " + triangle2.ToString(triangle2);
+            ResultTextBox.SelectedText = " The perimetr of first triangle is: " + triangle2.ToString(triangle2);
         }
     }
 
@@ -107,13 +127,23 @@ public partial class MainWindow : Window
         ResultTextBox.Clear();
         Triangles triangle1 = new Triangles();
         bool correct = triangle1.Check(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
-        if (correct == false)
+        bool range = triangle1.Check2(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
+        bool overflow = triangle1.Check3(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
+        if (overflow == false)
+        {
+            ResultTextBox.SelectedText = "Area is really big, we can't count it";
+        }
+        else if(range == false)
+        {
+            ResultTextBox.SelectedText = "Value is out of range";
+        }
+        else if (correct == false)
         {
             ResultTextBox.SelectedText = "Incorrect value or triangle doesn't exist";
         }
         else
         {
-            ResultTextBox.SelectedText = "Square of first triangle is: " + triangle1.ToString(-triangle1);
+            ResultTextBox.SelectedText = "The area of first triangle is: " + triangle1.ToString(-triangle1);
         }
     }
 
@@ -125,13 +155,23 @@ public partial class MainWindow : Window
         ResultTextBox.Clear();
         Triangles triangle2 = new Triangles();
         bool correct = triangle2.Check(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
-        if (correct == false)
+        bool range = triangle2.Check2(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
+        bool overflow = triangle2.Check3(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
+        if (overflow == false)
+        {
+            ResultTextBox.SelectedText = "Area is really big, we can't count it";
+        }
+        else if(range == false)
+        {
+            ResultTextBox.SelectedText = "Value is out of range";
+        }
+        else if (correct == false)
         {
             ResultTextBox.SelectedText = "Incorrect value or triangle doesn't exist";
         }
         else
         {
-            ResultTextBox.SelectedText = "Square of second triangle is: " + triangle2.ToString(-triangle2);
+            ResultTextBox.SelectedText = "The area of second triangle is: " + triangle2.ToString(-triangle2);
         }
     }
 
@@ -142,6 +182,8 @@ public partial class MainWindow : Window
         string sideCOfSecondTriangle = SideC2TextBox.Text;
         Triangles triangle2 = new Triangles();
         bool correct1 = triangle2.Check(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);//правильность первого треугольника
+        bool range1 = triangle2.Check2(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
+        bool overflow2 = triangle2.Check3(sideAOfSecondTriangle, sideBOfSecondTriangle, sideCOfSecondTriangle);
 
         ResultTextBox.Clear();
 
@@ -151,7 +193,17 @@ public partial class MainWindow : Window
         Triangles triangle1 = new Triangles();
 
         bool correct2 = triangle1.Check(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);//правильность второго треугольника
-        if ((correct1 == false) || (correct2 == false))
+        bool range2 = triangle1.Check2(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
+        bool overflow1 = triangle1.Check3(sideAOfFirstTriangle, sideBOfFirstTriangle, sideCOfFirstTriangle);
+        if ((overflow1 == false)||(overflow2 == false))
+        {
+            ResultTextBox.SelectedText = "One of the area is really big, we can't count it";
+        }
+        else if ((range2 == false)||(range1 == false))
+        {
+            ResultTextBox.SelectedText = "Value is out of range";
+        }
+        else if ((correct1 == false) || (correct2 == false))
         {
             ResultTextBox.SelectedText = "Incorrect value or triangle doesn't exist";
         }
@@ -159,11 +211,11 @@ public partial class MainWindow : Window
         {
             if (triangle1 > triangle2)
             {
-                ResultTextBox.SelectedText = "First triangle have bigger square then second triangle";
+                ResultTextBox.SelectedText = "The area of ​​the first triangle is greater than the area of ​​the second triangle";
             }
             else if (triangle1 < triangle2)
             {
-                ResultTextBox.SelectedText = "Second triangle have bigger square then first triangle";
+                ResultTextBox.SelectedText = "The area of ​​the second triangle is greater than the area of ​​the first triangle";
             }
             else
             {

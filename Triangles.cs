@@ -13,6 +13,8 @@ namespace lab9
     /// Класс состоит из 3 полей - сторон треугольника и различных методов и переопределений:
     /// метод Give - заполняет поля класса
     /// метод Check - проверка корректности, возвращает true при существовании треугольника, иначе false
+    /// метод Check2 - проверка длины строк, возвращает true при их длине не более 300 символов, иначе false
+    /// метод Check3 - проверка суммы длин строк, возвращает true при их суммарной длине не более 300 символов, иначе false
     /// перегрузка оператора "-"  - подсчет площади треугольника - возвращает площадь, если треугольник существует, иначе - 0
     /// перегрузка bool - возвращает true, если данные стороны образуют треугольник, иначе вернет false
     /// перегрузка double - возвращает периметр треугольника при его существовании, иначе вернет 0
@@ -31,12 +33,19 @@ namespace lab9
             double b = trial._b;
             double c = trial._c;
 
+            double sqP;// это для корней сторон  в треугольниках
+            double sqA;
+            double sqB;
+            double sqC;
+
             if ((a + b > c) && (b + c > a) && (a + c > b))
             {
                 double p = (a + b + c) / 2;
-                double Square = p * (p - a) * (p - b) * (p - c);
-                Square = Math.Sqrt(Square);
-                return Square;
+                sqP = Math.Sqrt(p);
+                sqA = Math.Sqrt(p - a);
+                sqB = Math.Sqrt(p - b);
+                sqC = Math.Sqrt(p - c);
+                return sqP * (sqA) * (sqB) * (sqC);
             }
             else
             {
@@ -80,12 +89,19 @@ namespace lab9
         {
             double squareFirst;
             double squareSecond;
+            double sqP;// это для корней сторон  в треугольниках
+            double sqA;
+            double sqB;
+            double sqC;
 
             if ((one._a + one._b > one._c) && (one._b + one._c > one._a) && (one._a + one._c > one._b))
             {
                 double p = (one._a + one._b + one._c) / 2;
-                squareFirst = p * (p - one._a) * (p - one._b) * (p - one._c);
-                squareFirst = Math.Sqrt(squareFirst);
+                sqP = Math.Sqrt(p);
+                sqA = Math.Sqrt(p - one._a);
+                sqB = Math.Sqrt(p - one._b);
+                sqC = Math.Sqrt(p - one._c);
+                squareFirst = sqP * (sqA) * (sqB) * (sqC);
             }
             else
             {
@@ -95,8 +111,11 @@ namespace lab9
             if ((two._a + two._b > two._c) && (two._b + two._c > two._a) && (two._a + two._c > two._b))
             {
                 double p = (two._a + two._b + two._c) / 2;
-                squareSecond = p * (p - two._a) * (p - two._b) * (p - two._c);
-                squareSecond = Math.Sqrt(squareSecond);
+                sqP = Math.Sqrt(p);
+                sqA = Math.Sqrt(p - two._a);
+                sqB = Math.Sqrt(p - two._b);
+                sqC = Math.Sqrt(p - two._c);
+                squareSecond = sqP * (sqA) * (sqB) * (sqC);
             }
             else
             {
@@ -116,13 +135,21 @@ namespace lab9
         public static bool operator <(Triangles one, Triangles two)//тут triangles one и two это просто треугольник 1 и треугольник 2, их надо сравнить
         {
             double squareFirst;
-            double squareSecond ;
+            double squareSecond;
+            double sqP;
+            double sqA;
+            double sqB;
+            double sqC;
+
 
             if ((one._a + one._b > one._c) && (one._b + one._c > one._a) && (one._a + one._c > one._b))
             {
                 double p = (one._a + one._b + one._c) / 2;
-                squareFirst = p * (p - one._a) * (p - one._b) * (p - one._c);
-                squareFirst = Math.Sqrt(squareFirst);
+                sqP = Math.Sqrt(p);
+                sqA = Math.Sqrt(p - one._a);
+                sqB = Math.Sqrt(p - one._b);
+                sqC = Math.Sqrt(p - one._c);
+                squareFirst = sqP * (sqA) * (sqB) * (sqC);
             }
             else
             {
@@ -132,8 +159,11 @@ namespace lab9
             if ((two._a + two._b > two._c) && (two._b + two._c > two._a) && (two._a + two._c > two._b))
             {
                 double p = (two._a + two._b + two._c) / 2;
-                squareSecond = p * (p - two._a) * (p - two._b) * (p - two._c);
-                squareSecond = Math.Sqrt(squareSecond);
+                sqP = Math.Sqrt(p);
+                sqA = Math.Sqrt(p - two._a);
+                sqB = Math.Sqrt(p - two._b);
+                sqC = Math.Sqrt(p - two._c);
+                squareSecond = sqP * (sqA) * (sqB) * (sqC);
             }
             else
             {
@@ -203,6 +233,24 @@ namespace lab9
                 return true;
             }
             return false;
+        }
+
+        public bool Check2(string a, string b, string c)
+        {
+            if ((a.Length > 300)|| (b.Length > 300)|| (c.Length > 300))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public bool Check3(string a, string b, string c)
+        {
+            if (((2*a.Length + b.Length + c.Length)>600) ||((a.Length + 2*b.Length + c.Length) > 600)||(a.Length + b.Length + 2*c.Length) > 600)
+            {
+                return false;
+            }
+            return true;
         }
 
         /*public void check(Triangles class_name)
